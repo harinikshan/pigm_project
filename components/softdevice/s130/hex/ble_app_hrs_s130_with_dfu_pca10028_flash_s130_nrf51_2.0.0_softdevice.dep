@@ -1,0 +1,48 @@
+Dependencies for Project 'ble_app_hrs_s130_with_dfu_pca10028', Target 'flash_s130_nrf51_2.0.0_softdevice': (DO NOT MODIFY !)
+F (E:\prathapreddy\nRF5_SDK_12.2.0_f012efa\examples\ble_peripheral\ble_app_hrs\pca10028\s130\config\sdk_config.h)(0x5A0AC71D)()
+F (E:\prathapreddy\nRF5_SDK_12.2.0_f012efa\examples\ble_peripheral\ble_app_hrs\pca10028\s130\config\lm75b.h)(0x59EF17B3)()
+F (..\..\..\main.c)(0x5A0F0561)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\..\config\ble_app_hrs_s130_with_dfu_pca10028 -I ..\..\..\config-IE:\nRF5_SDK_11.0.0_89a8197\nRF5_SDK_11.0.0_89a8197\examples\ble_peripheral\ble_app_hrs\pca10028\s130_with_dfu\arm5_no_packs\RTE\_flash_s130_nrf51_2.0.0_softdevice-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="522" -D_RTE_ -DNRF51-o ..\..\..\..\..\..\components\softdevice\s130\hex\main.o --omf_browse ..\..\..\..\..\..\components\softdevice\s130\hex\main.crf --depend ..\..\..\..\..\..\components\softdevice\s130\hex\main.d)
+I (C:\Keil_v5\ARM\ARMCC\include\stdint.h)(0x598C3E0B)
+I (C:\Keil_v5\ARM\ARMCC\include\string.h)(0x57F629E0)
+F (..\..\..\..\..\bsp\bsp.c)(0x56E1A850)()
+F (..\..\..\..\..\bsp\bsp_btn_ble.c)(0x56E1A850)()
+F (..\..\..\Abstract.txt)(0x56E1A850)()
+F (..\..\..\license.txt)(0x56E1A878)()
+F (..\..\..\..\..\..\components\ble\common\ble_advdata.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\ble\ble_advertising\ble_advertising.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\ble\ble_services\ble_bas\ble_bas.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\ble\common\ble_conn_params.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\ble\ble_services\ble_dfu\ble_dfu.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\ble\ble_services\ble_dis\ble_dis.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\ble\ble_services\ble_hrs\ble_hrs.c)(0x5A0C0CEC)()
+F (..\..\..\..\..\..\components\ble\common\ble_srv_common.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\ble\device_manager\device_manager_peripheral.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\uart\app_uart_fifo.c)(0x58529BEC)()
+F (..\..\..\..\..\..\components\drivers_nrf\delay\nrf_delay.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\drivers_nrf\common\nrf_drv_common.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\drivers_nrf\gpiote\nrf_drv_gpiote.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\drivers_nrf\uart\nrf_drv_uart.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\drivers_nrf\pstorage\pstorage.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\drivers_nrf\twi_master\nrf_drv_twi.c)(0x56E1A850)(--c99 -c --cpu Cortex-M0 -D__MICROLIB -g -O3 --apcs=interwork --split_sections -I ..\..\..\config\ble_app_hrs_s130_with_dfu_pca10028 -I ..\..\..\config-IE:\nRF5_SDK_11.0.0_89a8197\nRF5_SDK_11.0.0_89a8197\examples\ble_peripheral\ble_app_hrs\pca10028\s130_with_dfu\arm5_no_packs\RTE\_flash_s130_nrf51_2.0.0_softdevice-IC:\Keil_v5\ARM\PACK\NordicSemiconductor\nRF_DeviceFamilyPack\8.11.1\Device\Include-IC:\Keil_v5\ARM\CMSIS\Include-D__UVISION_VERSION="522" -D_RTE_ -DNRF51-o ..\..\..\..\..\..\components\softdevice\s130\hex\nrf_drv_twi.o --omf_browse ..\..\..\..\..\..\components\softdevice\s130\hex\nrf_drv_twi.crf --depend ..\..\..\..\..\..\components\softdevice\s130\hex\nrf_drv_twi.d)
+I (..\..\..\..\..\..\components\drivers_nrf\twi_master\nrf_drv_twi.h)(0x5A0FC8D4)
+F (..\..\..\..\..\..\components\libraries\button\app_button.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\util\app_error.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\util\app_error_weak.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\fifo\app_fifo.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\timer\app_timer.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\trace\app_trace.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\util\app_util_platform.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\bootloader_dfu\bootloader_util.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\bootloader_dfu\dfu_app_handler.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\fstorage\fstorage.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\util\nrf_assert.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\util\nrf_log.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\uart\retarget.c)(0x56E1A850)()
+F (..\..\..\..\..\..\components\libraries\sensorsim\sensorsim.c)(0x56E1A850)()
+F (..\..\..\..\..\..\external\segger_rtt\RTT_Syscalls_KEIL.c)(0x56E1A852)()
+F (..\..\..\..\..\..\external\segger_rtt\SEGGER_RTT.c)(0x56E1A852)()
+F (..\..\..\..\..\..\external\segger_rtt\SEGGER_RTT_printf.c)(0x56E1A852)()
+F (..\..\..\..\..\..\components\softdevice\s130\doc\s130_nrf51_2.0.0_licence_agreement.txt)(0x56C595BC)()
+F (..\..\..\..\..\..\components\softdevice\common\softdevice_handler\softdevice_handler.c)(0x56E1A850)()
+F (RTE\Device\nRF51422_xxAC\arm_startup_nrf51.s)(0x56CC8F56)()
+F (RTE\Device\nRF51422_xxAC\system_nrf51.c)(0x56CC8F56)()
