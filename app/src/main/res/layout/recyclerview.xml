@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content">
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/heartvalues"
+        android:text="Heart_Rate"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/spo2values"
+        android:text="Spo2"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="0.4"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/temperaturevalues"
+        android:text="Temperature"/>
+    <TextView
+        android:layout_width="0dp"
+        android:layout_weight="1.6"
+        android:textSize="16sp"
+        android:layout_height="wrap_content"
+        android:id="@+id/date"
+        android:text="Date"/>
+</LinearLayout>

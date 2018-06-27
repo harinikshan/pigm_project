@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- Copyright (C) 2013 The Android Open Source Project
+
+     Licensed under the Apache License, Version 2.0 (the "License");
+     you may not use this file except in compliance with the License.
+     You may obtain a copy of the License at
+
+          http://www.apache.org/licenses/LICENSE-2.0
+
+     Unless required by applicable law or agreed to in writing, software
+     distributed under the License is distributed on an "AS IS" BASIS,
+     WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+     See the License for the specific language governing permissions and
+     limitations under the License.
+-->
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+    <item android:id="@+id/menu_sync"
+          android:icon="@drawable/ic_sync"
+          android:orderInCategory="1"
+          android:showAsAction="always"/>
+    <item android:id="@+id/menu_refresh"
+          android:checkable="false"
+          android:orderInCategory="1"
+          android:showAsAction="ifRoom"/>
+    <item android:id="@+id/menu_scan"
+          android:title="@string/menu_scan"
+          android:orderInCategory="100"
+          android:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/menu_stop"
+          android:title="@string/menu_stop"
+          android:orderInCategory="101"
+          android:showAsAction="ifRoom|withText"/>
+    <item android:id="@+id/back"
+          android:title="Reset"
+          android:orderInCategory="102"
+          android:visible="false"/>
+    <item android:id="@+id/history1"
+        android:title="History"
+        android:orderInCategory="103"
+        android:visible="false"/>
+    <item android:id="@+id/accel"
+        android:title="Accelometer"
+        android:orderInCategory="104"
+        android:visible="false"/>
+    <item android:id="@+id/heartrate"
+          android:title="Heart Rate"
+          android:orderInCategory="105"
+        android:visible="false"/>
+    <item android:id="@+id/menuspo2"
+            android:title="Spo2-graph"
+            android:orderInCategory="106"
+        android:visible="false"/>
+    <item android:id="@+id/temmperature"
+        android:title="Temperature-graph"
+        android:orderInCategory="107"
+        android:visible="false"/>
+    <item android:id="@+id/log"
+        android:title="Log File"
+        android:orderInCategory="108"
+        android:visible="false" >
+    </item>
+    <item android:id="@+id/graph123"
+        android:title="Graph"
+        android:orderInCategory="109"
+        android:visible="false"/>
+    <item android:id="@+id/configure"
+        android:title="Configure Device"
+        android:orderInCategory="110"
+        android:visible="false"/>
+    <item android:id="@+id/configurabletime"
+        android:title="Configure Time"
+        android:orderInCategory="111"
+        android:visible="false"/>
+    <item android:id="@+id/adddevice"
+        android:title="Add Device"
+        android:orderInCategory="112"
+        android:visible="false"/>
+    <item android:id="@+id/stoptimer"
+        android:title="Timer Stop"
+        android:orderInCategory="113"
+        android:visible="false"/>
+    <item android:id="@+id/addeddevices"
+        android:title="Devices"
+        android:orderInCategory="114"
+        android:visible="false"/>
+    <item android:id="@+id/graphview2"
+        android:title="GraphView"
+        android:orderInCategory="115"
+        android:visible="false"/>
+    <item android:id="@+id/rename"
+        android:orderInCategory="115"
+        android:visible="false"
+        android:title="Rename Device"/>
+</menu>

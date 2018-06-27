@@ -1,0 +1,456 @@
+<?xml version="1.0" encoding="utf-8"?>
+<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+
+    <ProgressBar
+        android:id="@+id/progressBar"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:layout_centerHorizontal="true"
+        android:layout_centerVertical="true"
+        android:layout_gravity="center"
+        android:visibility="visible"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/heart_rate"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="8dp"
+        android:text="0"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@+id/heart_rate_title"
+        app:layout_constraintEnd_toStartOf="@+id/home_vertical_guideline"
+        app:layout_constraintStart_toStartOf="parent"
+        tools:text="80" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/home_vertical_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/heart_rate_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="Bpm"
+        app:layout_constraintBottom_toBottomOf="@+id/heart_rate"
+        app:layout_constraintStart_toEndOf="@+id/heart_rate"
+        app:layout_constraintTop_toTopOf="@+id/heart_rate"
+        app:layout_constraintVertical_bias="0.544"
+        tools:text="Bpm" />
+
+    <android.support.constraint.Guideline
+        android:id="@+id/home_horizontal_guideline"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        app:layout_constraintGuide_percent="0.5" />
+
+    <TextView
+        android:id="@+id/heart_rate_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Heart Rate"
+        app:layout_constraintBottom_toTopOf="@+id/home_horizontal_guideline"
+        app:layout_constraintEnd_toStartOf="@+id/home_vertical_guideline"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <TextView
+        android:id="@+id/spo_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Spo2"
+        app:layout_constraintBottom_toTopOf="@+id/home_horizontal_guideline"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/home_vertical_guideline" />
+
+    <TextView
+        android:id="@+id/spo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="0"
+        android:textSize="80sp"
+        app:layout_constraintBottom_toTopOf="@+id/spo_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/home_vertical_guideline"
+        tools:text="50" />
+
+    <TextView
+        android:id="@+id/temperature"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="50dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:text="0"
+        android:textSize="80sp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/home_horizontal_guideline"
+        tools:text="50" />
+
+    <TextView
+        android:id="@+id/temp_unit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="C"
+        app:layout_constraintBottom_toBottomOf="@+id/temperature"
+        app:layout_constraintStart_toEndOf="@+id/temperature"
+        app:layout_constraintTop_toTopOf="@+id/temperature" />
+
+    <TextView
+        android:id="@+id/temp_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Temperature"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/temperature" />
+
+    <android.support.constraint.Group
+        android:id="@+id/analytics"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="spo2,temp_title,home_vertical_guideline,heart_rate,spo_title,temperature,heart_rate_unit,home_horizontal_guideline,temp_unit,heart_rate_title" />
+
+    <TextView
+        android:id="@+id/x_axis_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginEnd="8dp"
+        android:text="X Axis"
+        app:layout_constraintBottom_toTopOf="@+id/y_axis_title"
+        app:layout_constraintEnd_toStartOf="@+id/home_vertical_guideline" />
+
+    <TextView
+        android:id="@+id/y_axis_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="8dp"
+        android:text="Y-Axis"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toStartOf="@+id/home_vertical_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/z_axis_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginTop="50dp"
+        android:text="Z-Axis"
+        app:layout_constraintEnd_toStartOf="@+id/home_vertical_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/y_axis_title" />
+
+    <TextView
+        android:id="@+id/y_axis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintStart_toStartOf="@+id/home_vertical_guideline"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <TextView
+        android:id="@+id/x_axis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="50dp"
+        android:layout_marginStart="8dp"
+        android:text="0"
+        app:layout_constraintBottom_toTopOf="@+id/y_axis"
+        app:layout_constraintStart_toStartOf="@+id/home_vertical_guideline" />
+
+    <TextView
+        android:id="@+id/z_axis"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="50dp"
+        android:text="0"
+        app:layout_constraintStart_toStartOf="@+id/home_vertical_guideline"
+        app:layout_constraintTop_toBottomOf="@+id/y_axis" />
+
+    <android.support.constraint.Group
+        android:id="@+id/accelerometer"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="y_axis,x_axis,z_axis,y_axis_title,z_axis_title,x_axis_title" />
+
+    <TextView
+        android:id="@+id/ad_interval_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="30dp"
+        android:text="Advertisment Interval"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <SeekBar
+        android:id="@+id/ad_interval_seek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="10dp"
+        android:max="900"
+        android:progress="1"
+        app:layout_constraintEnd_toStartOf="@+id/ad_interval_max"
+        app:layout_constraintStart_toEndOf="@+id/ad_interval_min"
+        app:layout_constraintTop_toBottomOf="@+id/ad_interval_title" />
+
+    <TextView
+        android:id="@+id/ad_interval_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="100ms"
+        app:layout_constraintBottom_toBottomOf="@+id/ad_interval_seek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ad_interval_seek" />
+
+    <TextView
+        android:id="@+id/ad_interval_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="1000ms"
+        app:layout_constraintBottom_toBottomOf="@+id/ad_interval_seek"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ad_interval_seek" />
+
+    <TextView
+        android:id="@+id/ad_interval"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="100"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/ad_interval_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/ad_interval_title" />
+
+    <TextView
+        android:id="@+id/wake_time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Wake Time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/ad_interval_seek" />
+
+    <TextView
+        android:id="@+id/wake_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="1"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/wake_time_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wake_time_title" />
+
+    <TextView
+        android:id="@+id/wake_time_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="1min"
+        app:layout_constraintBottom_toBottomOf="@+id/wake_time_seek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wake_time_seek" />
+
+    <TextView
+        android:id="@+id/wake_time_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="120min"
+        app:layout_constraintBottom_toBottomOf="@+id/wake_time_seek"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/wake_time_seek" />
+
+    <SeekBar
+        android:id="@+id/wake_time_seek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:max="119"
+        android:progress="1"
+        app:layout_constraintEnd_toEndOf="@+id/ad_interval_seek"
+        app:layout_constraintStart_toStartOf="@+id/ad_interval_seek"
+        app:layout_constraintTop_toBottomOf="@+id/wake_time_title" />
+
+    <TextView
+        android:id="@+id/active_time_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Active Time"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/wake_time_seek" />
+
+    <TextView
+        android:id="@+id/active_time"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="5"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/active_time_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/active_time_title" />
+
+    <TextView
+        android:id="@+id/active_time_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="5sec"
+        app:layout_constraintBottom_toBottomOf="@+id/active_time_seek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/active_time_seek" />
+
+    <TextView
+        android:id="@+id/active_time_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="60sec"
+        app:layout_constraintBottom_toBottomOf="@+id/active_time_seek"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/active_time_seek" />
+
+    <SeekBar
+        android:id="@+id/active_time_seek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:max="55"
+        android:progress="5"
+        app:layout_constraintEnd_toEndOf="@+id/wake_time_seek"
+        app:layout_constraintStart_toStartOf="@+id/wake_time_seek"
+        app:layout_constraintTop_toBottomOf="@+id/active_time_title" />
+
+    <TextView
+        android:id="@+id/power_transmission_title"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
+        android:text="Power Transmission"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/active_time_seek" />
+
+    <TextView
+        android:id="@+id/power_trans_min"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="8dp"
+        android:text="-40dp"
+        app:layout_constraintBottom_toBottomOf="@+id/power_trans_seek"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/power_trans_seek" />
+
+    <TextView
+        android:id="@+id/power_trans_max"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="4dp"
+        app:layout_constraintBottom_toBottomOf="@+id/power_trans_seek"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/power_trans_seek" />
+
+    <SeekBar
+        android:id="@+id/power_trans_seek"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:max="44"
+        android:progress="1"
+        app:layout_constraintEnd_toEndOf="@+id/active_time_seek"
+        app:layout_constraintStart_toStartOf="@+id/active_time_seek"
+        app:layout_constraintTop_toBottomOf="@+id/power_transmission_title" />
+
+    <TextView
+        android:id="@+id/power_trans"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginEnd="8dp"
+        android:text="-40"
+        android:textColor="@android:color/white"
+        app:layout_constraintBottom_toBottomOf="@+id/power_transmission_title"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/power_transmission_title" />
+
+    <Button
+        android:id="@+id/config_submit"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:layout_marginEnd="8dp"
+        android:layout_marginStart="8dp"
+        android:text="Set"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+    <android.support.constraint.Group
+        android:id="@+id/config"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:visibility="gone"
+        app:constraint_referenced_ids="active_time_min,ad_interval_min,power_trans_seek,power_trans,active_time_title,active_time,active_time_seek,wake_time_max,power_trans_max,ad_interval_seek,wake_time,active_time_max,power_transmission_title,ad_interval_max,wake_time_title,power_trans_min,wake_time_seek,ad_interval,wake_time_min,ad_interval_title,config_submit" />
+
+    <com.jjoe64.graphview.GraphView
+        android:id="@+id/graphview"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_alignParentStart="true"
+        android:layout_alignParentTop="true"
+        android:visibility="gone"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+</android.support.constraint.ConstraintLayout>

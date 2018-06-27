@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!--
+  Copyright (c) 2013 Nordic Semiconductor. All Rights Reserved.
+  
+  The information contained herein is property of Nordic Semiconductor ASA.
+  Terms and conditions of usage are described in detail in NORDIC SEMICONDUCTOR STANDARD SOFTWARE LICENSE AGREEMENT.
+  Licensees are granted free, non-transferable use of the information. NO WARRANTY of ANY KIND is provided. 
+  This heading must NOT be removed from the file.
+-->
+<resources>
+    <color name="featureTitleColor">#939597</color>
+    <color name="actionBarColor">#ff444444</color>  <!-- 009CDE -->
+    <color name="backgroundColor">#E6E7E8</color>
+    <color name="headerBackgroundColor">#ff888888</color>  <!-- 009ada -->
+    <color name="headerTextColor">#FFFFFF</color>
+    <color name="dividerColor">#BBBDC0</color>
+    
+    <color name="darkGray">#AAABAF</color>
+    <color name="red">#ffe2231a</color>
+    <color name="dark_red">#ff510209</color>
+
+</resources>
