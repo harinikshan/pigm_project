@@ -454,6 +454,7 @@ public class DbService extends IntentService {
             try {
                 for (Analysis analysis : analyses) {
                     if (!getAnalysis(db, analysis.getTime(), analysis.getDevice())) {
+                        Log.i("hari","data analysis entry to database" );
                         ContentValues contentValues = new ContentValues();
                         contentValues.put(DbContract.AnalysisEntry.COLUMN_DEVICE, analysis.getDevice());
                         contentValues.put(DbContract.AnalysisEntry.COLUMN_TIME, analysis.getTime());

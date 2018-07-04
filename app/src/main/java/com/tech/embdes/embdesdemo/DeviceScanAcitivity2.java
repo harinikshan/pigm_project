@@ -149,6 +149,7 @@ public class DeviceScanAcitivity2 extends Activity {
         public void onReceive(Context context, Intent intent) {
             final String action = intent.getAction();
             if (BluetoothLeService.ACTION_GATT_CONNECTED.equals(action)) {
+                mBluetoothLeService.countDownTimer.start();
                 System.out.println("Connected");
                 mConnected = true;
                 connectionsate = "Connected";
@@ -160,12 +161,20 @@ public class DeviceScanAcitivity2 extends Activity {
                 String name = getSelectedDevice() != null ? getSelectedDevice().getName() : "";
                 Toast.makeText(DeviceScanAcitivity2.this, "Device Connected:" + name, 300).show();
             } else if (BluetoothLeService.ACTION_GATT_DISCONNECTED.equals(action)) {
+                //added by hari prasath
+                /*
+                 Device outoff range calls the ACTION_GATT_DISCONNECTED action  at that time collected data is uploaded to data base
+                 */
+                mBluetoothLeService.countDownTimer.cancel();
+                mBluetoothLeService.database_upload();
                 String name = getSelectedDevice() != null ? getSelectedDevice().getName() : "";
                 Toast.makeText(DeviceScanAcitivity2.this, "Device DisConnected", 300).show();
                 invalidateOptionsMenu();
                 flag2 = false;
                 k++;
             } else if (BluetoothLeService.ACTION_GATT_SERVICES_DISCOVERED.equals(action)) {
+
+
                 String name = getSelectedDevice() != null ? getSelectedDevice().getName() : "";
                 Toast.makeText(DeviceScanAcitivity2.this, "Services Discovered" + name, 300).show();
             } else if (BluetoothLeService.ACTION_GATT_CONNECTING.equals(action)) {

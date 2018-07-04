@@ -16,9 +16,11 @@ import android.content.Context;
 import android.content.Intent;
 import android.os.Binder;
 import android.os.Build;
+import android.os.CountDownTimer;
 import android.os.Handler;
 import android.os.IBinder;
 import android.util.Log;
+import android.widget.Toast;
 
 import com.tech.embdes.embdesdemo.data.Analysis;
 import com.tech.embdes.embdesdemo.data.DbContract;
@@ -111,6 +113,10 @@ public class BluetoothLeService extends android.app.Service {
     int spo2, temp;
     PrintWriter pw = null;
     BluetoothGatt mBluetoothGatt;
+    int a = 0;
+   int  countnum = 0;
+    //countdowntimer declaration
+    CountDownTimer countDownTimer;
     //Service UUID
     BluetoothGattCharacteristic mLedCharacteristic, mButtonChar;
     PendingIntent repeatPendingIntent;
@@ -293,61 +299,66 @@ public class BluetoothLeService extends android.app.Service {
                 }
                 int offset0 = characteristic.getIntValue(format, 0);
                 Log.v(TAG, "onCharacteristic" + offset0);
-                if (offset0 == 1) {
+               // changed by G.Hari Prasath
+                /*
+                description:
+                 1)Removed the live data entering into the database because firm ware developer store the copy of the live data
+                in the buffer
+                2)Created the method named database_upload() helps to push the collected data to the database
+                3)
+                 */
+                if (offset0 == 0) {
+
                     // Nothing to do handled in broadcast
-                    mPacketReceived++;
-                    if (mPacketReceived == availablePacketsToRead) {
-                        Log.v(TAG, "onCharacteristicChanged insided read " + mPacketReceived);
-                        broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
-                        mConnectionState = STATE_READ;
 
-                        Intent saveAnalysis = new Intent(BluetoothLeService.this, DbService.class);
-                        saveAnalysis.setAction(DbContract.ACTION_INSERT_MULTI_ANALYSIS);
-                        saveAnalysis.putExtra(DbContract.ANALYSIS, analyses);
-                        startService(saveAnalysis);
-                        analyses.clear();
-
-                        disconnectAndReadNext();
-                        return;
-                    } else {
-                        Log.v(TAG, "onCharacteristicChanged insided read else " + mPacketReceived);
-                        mConnectionState = STATE_READING_IN_PROGRESS;
-                    }
-                } else {
                     Log.v(TAG, "onCharacteristicChanged Total packet size " + availablePacketsToRead + " receivedPacket " + mPacketReceived + " isReadAll " + isReadAll);
                     Log.v(TAG, "onCharacteristicChanged Connection State " + mConnectionState);
+
                     if (mConnectionState == STATE_SYNC_TIME) {
                         // Nothing to do. handled in send broadcast
                     } else if (mConnectionState == STATE_READ_REQUESTED) {
                         Log.e(TAG, "onCharacteristicChanged Packet length received");
                         mPacketReceived = 0;
+                        Log.i("hari2", "packets"+ mPacketReceived);
                     } else if (mConnectionState == STATE_PACKETS_COUNTED || mConnectionState == STATE_READING_IN_PROGRESS) {
                         mPacketReceived++;
-                        if (mPacketReceived == availablePacketsToRead) {
+
+                        Log.i("hari12345","timer start");
+
+
+                        if (mPacketReceived == availablePacketsToRead  ) {
+                            countDownTimer.cancel();
+                            Log.d("hari","background data to database finished" + mPacketReceived);
                             Log.v(TAG, "onCharacteristicChanged insided read " + mPacketReceived);
                             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
                             mConnectionState = STATE_READ;
 
-                            for (Analysis analysis : analyses) {
-                                Log.e(TAG, "Analysis Before Save:" + analysis.toString());
-                            }
-                            Intent saveAnalysis = new Intent(BluetoothLeService.this, DbService.class);
-                            saveAnalysis.setAction(DbContract.ACTION_INSERT_MULTI_ANALYSIS);
-                            saveAnalysis.putExtra(DbContract.ANALYSIS, analyses);
-                            startService(saveAnalysis);
-                            analyses.clear();
-
-                            disconnectAndReadNext();
+                            database_upload();
                             return;
-                        } else {
+                        }
+
+                        else {
+                            a= a+1;
+                            Log.i("hari1", "reading in processes"+ a);
                             Log.v(TAG, "onCharacteristicChanged insided read else " + mPacketReceived);
                             mConnectionState = STATE_READING_IN_PROGRESS;
+//                            timer = new Timer();
+
+                            Log.i("countdowntimer",countDownTimer+"started");
+                            countDownTimer.cancel();
+                            countnum = countnum+1;
+                            Log.i("countdowntimer",countDownTimer+"stopped"+countnum);
+                            countDownTimer.start();
                         }
+
+
                     }
+
                 }
                 Log.e(TAG, "onCharacteristicChanged " + mConnectionState);
             }
             broadcastUpdate(ACTION_DATA_AVAILABLE, characteristic);
+
         }
 
         @Override
@@ -529,7 +540,16 @@ public class BluetoothLeService extends android.app.Service {
                 if (type == 1) {
                     intent.putExtra(EXTRA_DATA, ANALYSIS_LIVE_DATA);
                     intent.putExtra(DbContract.ANALYSIS, analysis);
-                } else {
+                }
+                // added by hari prasath
+                /*
+                  type 2 represent the end of data transmission from device by firm ware guy
+                 */
+                else if(type==2){
+                   database_upload();
+                    Log.i("hari","end of data notification from fiemware");
+                }
+                else {
                     analyses.add(analysis);
                     intent.putExtra(EXTRA_DATA, ANALYSIS_DATA);
                     intent.putExtra(DbContract.ANALYSIS, analysis);
@@ -1072,6 +1092,7 @@ public class BluetoothLeService extends android.app.Service {
     public void onCreate() {
         super.onCreate();
         alarmManager = (AlarmManager) getSystemService(ALARM_SERVICE);
+        countDownTimer = new CountDownTimerTest(1000,1000);
     }
 
     public synchronized void initiateReadFromAllDevices() {
@@ -1261,5 +1282,36 @@ public class BluetoothLeService extends android.app.Service {
             loadImageDATA(new byte[]{0x07});
         }
     }
+    //added by Hari Prasath
+    /*
+    description:
+    countdowntimer is extended in the CountDownTimerTest
+     */
+    public class CountDownTimerTest extends CountDownTimer {
+        public CountDownTimerTest(long startTime, long interval) {
+            super(startTime, interval);
+        }
 
+        @Override
+        public void onFinish() {
+            Toast.makeText(BluetoothLeService.this, " timer finish ", Toast.LENGTH_SHORT).show();
+            Log.i("countdowntimer",countDownTimer+"finished");
+            database_upload();
+        }
+
+        @Override
+        public void onTick(long millisUntilFinished) {
+
+        }
+    }
+public  void database_upload()
+{
+    Intent saveAnalysis = new Intent(BluetoothLeService.this, DbService.class);
+    saveAnalysis.setAction(DbContract.ACTION_INSERT_MULTI_ANALYSIS);
+    saveAnalysis.putExtra(DbContract.ANALYSIS, analyses);
+    startService(saveAnalysis);
+    analyses.clear();
+
+    disconnectAndReadNext();
+}
 }
